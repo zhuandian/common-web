@@ -30,6 +30,9 @@ class HomeListAdapter(var dataList: List<HomeList>, var context: Context?) : Rec
         holder.tvContent.text = dataList[position].content
         holder.tvTime.text = dataList[position].time
         Glide.with(context).load(dataList[position].imgUrl).into(holder.img)
+        holder.itemView.setOnClickListener {
+            clickListener?.onItemClick(dataList[position])
+        }
     }
 
 
@@ -38,5 +41,14 @@ class HomeListAdapter(var dataList: List<HomeList>, var context: Context?) : Rec
         var tvTitle = itemView.findViewById<TextView>(R.id.tv_title)
         var tvContent = itemView.findViewById<TextView>(R.id.tv_content)
         var tvTime = itemView.findViewById<TextView>(R.id.tv_time)
+    }
+
+    private var clickListener: OnItemClickListener? = null
+    fun setOnClickListener(listener: OnItemClickListener) {
+        this.clickListener = listener
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(homeList: HomeList)
     }
 }

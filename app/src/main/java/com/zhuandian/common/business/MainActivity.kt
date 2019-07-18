@@ -1,11 +1,14 @@
-package com.zhuandian.common
+package com.zhuandian.common.business
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.zhuandian.common.R
 import com.zhuandian.common.adapter.HomeVpAdapter
 import com.zhuandian.common.base.BaseActivity
 import com.zhuandian.common.base.BaseFragment
 import com.zhuandian.common.business.fragment.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 
 class MainActivity : BaseActivity() {
     override fun getLayoutId(): Int {

@@ -1,5 +1,6 @@
 package com.zhuandian.common.business.fragment
 
+import android.app.Activity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -11,12 +12,14 @@ import com.zhuandian.common.utils.Constant
 import com.zhuandian.common.R
 import com.zhuandian.common.adapter.HomeListAdapter
 import com.zhuandian.common.base.BaseFragment
+import com.zhuandian.common.business.ItemDetailActivity
 import com.zhuandian.common.entity.Banner
 import com.zhuandian.common.entity.HomeEntity
 import com.zhuandian.common.entity.HomeList
 import com.zhuandian.common.utils.GlideImageLoader
 import com.zhuandian.common.utils.MyJsonRequest
 import kotlinx.android.synthetic.main.fragment_home.*
+import org.jetbrains.anko.startActivity
 import org.json.JSONObject
 
 /**
@@ -32,7 +35,6 @@ class HomeFragment : BaseFragment() {
         var requestQueue: RequestQueue = Volley.newRequestQueue(activity)
         var jsonObjectRequest: MyJsonRequest = MyJsonRequest(Constant.HOME_PAGE_URL, null,
                 Response.Listener<JSONObject> {
-
                     var homeEntity: HomeEntity = Gson().fromJson(String(it.toString().toByteArray(), charset("utf-8")), HomeEntity::class.java)
                     initBanner(homeEntity.banner)
                     initList(homeEntity.list)
@@ -45,7 +47,16 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun initList(list: List<HomeList>) {
-        rv_list.adapter = HomeListAdapter(list, context)
+        var homeListAdapter = HomeListAdapter(list, context)
+        homeListAdapter?.setOnClickListener(object : HomeListAdapter.OnItemClickListener {
+            override fun onItemClick(homeList: HomeList) {
+                (activity as Activity).startActivity<ItemDetailActivity>(
+//                        "data" to homeList
+                        Pair("data", homeList)
+                )
+            }
+        })
+        rv_list.adapter = homeListAdapter
         rv_list.layoutManager = LinearLayoutManager(activity)
     }
 
