@@ -1,5 +1,6 @@
 package com.zhuandian.common.business
 
+import androidx.viewpager.widget.ViewPager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.zhuandian.common.R
 import com.zhuandian.common.adapter.HomeVpAdapter
@@ -18,25 +19,47 @@ class MainActivity : BaseActivity() {
     override fun setUpView() {
         var pageList: MutableList<BaseFragment> = mutableListOf()
         pageList.add(HomeFragment())
+        pageList.add(HomeFragment())
+        pageList.add(HomeFragment())
+        pageList.add(HomeFragment())
         vp_main.adapter = HomeVpAdapter(pageList, supportFragmentManager)
         vp_main.currentItem = 0
-        nav_view.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        initBottomTab()
     }
 
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.navigation_home -> {
-
-                return@OnNavigationItemSelectedListener true
+    private fun initBottomTab() {
+        nav_view.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    vp_main.currentItem = 0
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.navigation_dashboard -> {
+                    vp_main.currentItem = 1
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.navigation_notifications -> {
+                    vp_main.currentItem = 2
+                    return@setOnNavigationItemSelectedListener true
+                }
             }
-            R.id.navigation_dashboard -> {
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_notifications -> {
-                return@OnNavigationItemSelectedListener true
-            }
+            false
         }
-        false
+
+        vp_main.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+            }
+
+            override fun onPageSelected(position: Int) {
+                nav_view.menu.getItem(position).setChecked(true)
+            }
+
+        })
+
+
     }
 
 
