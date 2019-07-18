@@ -19,9 +19,10 @@ abstract class BaseFragment : Fragment() {
         return rootView
     }
 
-    abstract fun setUpView()
 
     abstract fun getLayoutId(): Int
+
+    abstract fun setUpView()
 }
 
 

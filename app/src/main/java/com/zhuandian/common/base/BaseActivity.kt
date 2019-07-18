@@ -16,7 +16,7 @@ abstract class BaseActivity : AppCompatActivity() {
         setUpView()
     }
 
-    abstract fun setUpView()
-
     abstract fun getLayoutId(): Int
+
+    abstract fun setUpView()
 }
