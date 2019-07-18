@@ -15,10 +15,17 @@ import androidx.fragment.app.Fragment
 abstract class BaseFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var rootView: View = inflater.inflate(getLayoutId(), container, false);
-        setUpView()
         return rootView
     }
 
+    /**
+     * onCreateView中绑定setUpView会因为控件为完成初始化导致空指针，
+     * 为了安全，建议在onViewCreated绑定setUpView抽象方法
+     */
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUpView()
+    }
 
     abstract fun getLayoutId(): Int
 

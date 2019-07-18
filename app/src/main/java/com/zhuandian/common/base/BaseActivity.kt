@@ -13,6 +13,13 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
+    }
+
+    /**
+     * 为了确保安全，在onStart绑定setUpView
+     */
+    override fun onStart() {
+        super.onStart()
         setUpView()
     }
 
