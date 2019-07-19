@@ -7,6 +7,7 @@ import com.zhuandian.common.adapter.HomeVpAdapter
 import com.zhuandian.common.base.BaseActivity
 import com.zhuandian.common.base.BaseFragment
 import com.zhuandian.common.business.fragment.HomeFragment
+import com.zhuandian.common.business.fragment.SettingFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
@@ -21,7 +22,7 @@ class MainActivity : BaseActivity() {
         pageList.add(HomeFragment())
         pageList.add(HomeFragment())
         pageList.add(HomeFragment())
-        pageList.add(HomeFragment())
+        pageList.add(SettingFragment())
         vp_main.adapter = HomeVpAdapter(pageList, supportFragmentManager)
         vp_main.currentItem = 0
         initBottomTab()
@@ -40,6 +41,10 @@ class MainActivity : BaseActivity() {
                 }
                 R.id.navigation_notifications -> {
                     vp_main.currentItem = 2
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.navigation_setting -> {
+                    vp_main.currentItem = 3
                     return@setOnNavigationItemSelectedListener true
                 }
             }
