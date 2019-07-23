@@ -10,6 +10,8 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
+        <include layout="@layout/layout_common_title" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

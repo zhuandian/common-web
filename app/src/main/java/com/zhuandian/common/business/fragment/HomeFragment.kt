@@ -35,7 +35,7 @@ class HomeFragment : BaseFragment() {
         var requestQueue: RequestQueue = Volley.newRequestQueue(activity)
         var jsonObjectRequest: MyJsonRequest = MyJsonRequest(Constant.HOME_PAGE_URL, null,
                 Response.Listener<JSONObject> {
-                    var homeEntity: HomeEntity = Gson().fromJson(String(it.toString().toByteArray(), charset("utf-8")), HomeEntity::class.java)
+                    var homeEntity: HomeEntity = Gson().fromJson(it.toString(), HomeEntity::class.java)
                     initBanner(homeEntity.banner)
                     initList(homeEntity.list)
                 },

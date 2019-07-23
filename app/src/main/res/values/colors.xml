@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#00BCD4</color>
     <color name="colorAccent">#D81B60</color>
     <color name="bg_color">#F5F5F5</color>
+
+    <color name="color_999">#999999</color>
+    <color name="color_666">#666666</color>
+    <color name="color_ccc">#ccc</color>
 </resources>

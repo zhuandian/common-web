@@ -5,6 +5,7 @@ import com.zhuandian.common.R
 import com.zhuandian.common.base.BaseFragment
 import com.zhuandian.common.business.FeedBackActivity
 import kotlinx.android.synthetic.main.fragment_setting.*
+import kotlinx.android.synthetic.main.layout_common_title.*
 import org.jetbrains.anko.startActivity
 
 /**
@@ -16,6 +17,7 @@ class SettingFragment : BaseFragment() {
     override fun getLayoutId(): Int = R.layout.fragment_setting
 
     override fun setUpView() {
+        tv_title.text = "设置"
         btn_feed_back.setOnClickListener { (activity as Activity).startActivity<FeedBackActivity>() }
         tv_version.text = getAppVersion()
     }

@@ -7,6 +7,8 @@ import com.zhuandian.common.adapter.HomeVpAdapter
 import com.zhuandian.common.base.BaseActivity
 import com.zhuandian.common.base.BaseFragment
 import com.zhuandian.common.business.fragment.HomeFragment
+import com.zhuandian.common.business.fragment.NewsFragment
+import com.zhuandian.common.business.fragment.PictureFragment
 import com.zhuandian.common.business.fragment.SettingFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
@@ -20,8 +22,8 @@ class MainActivity : BaseActivity() {
     override fun setUpView() {
         var pageList: MutableList<BaseFragment> = mutableListOf()
         pageList.add(HomeFragment())
-        pageList.add(HomeFragment())
-        pageList.add(HomeFragment())
+        pageList.add(NewsFragment())
+        pageList.add(PictureFragment())
         pageList.add(SettingFragment())
         vp_main.adapter = HomeVpAdapter(pageList, supportFragmentManager)
         vp_main.currentItem = 0

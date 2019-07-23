@@ -12,7 +12,7 @@ import org.json.JSONObject
 import java.io.UnsupportedEncodingException
 
 /**
- * desc :重写JsonObjectRequest，解决volley中午乱码问题
+ * desc :重写JsonObjectRequest，解决volley中文乱码问题
  * author：xiedong
  * date：2019/7/18
  */
