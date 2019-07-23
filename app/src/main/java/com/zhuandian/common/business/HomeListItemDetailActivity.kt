@@ -10,6 +10,7 @@ class HomeListItemDetailActivity : BaseActivity() {
     override fun getLayoutId(): Int = R.layout.activity_home_list_item_detail
 
     override fun setUpView() {
+        tv_title.text = "咨询详情"
         var data: HomeList = intent.getSerializableExtra("data") as HomeList
         Glide.with(this).load(data.imgUrl).into(iv_img)
         tv_time.text = data.time

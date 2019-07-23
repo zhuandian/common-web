@@ -1,6 +1,7 @@
 package com.zhuandian.common.business.fragment
 
 import android.app.Activity
+import android.view.View
 import com.zhuandian.common.R
 import com.zhuandian.common.base.BaseFragment
 import com.zhuandian.common.business.FeedBackActivity
@@ -17,6 +18,8 @@ class SettingFragment : BaseFragment() {
     override fun getLayoutId(): Int = R.layout.fragment_setting
 
     override fun setUpView() {
+        iv_back.visibility = View.GONE
+        iv_share.visibility = View.GONE
         tv_title.text = "设置"
         btn_feed_back.setOnClickListener { (activity as Activity).startActivity<FeedBackActivity>() }
         tv_version.text = getAppVersion()
