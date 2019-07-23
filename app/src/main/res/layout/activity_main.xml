@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".business.MainActivity">
 
-    <androidx.viewpager.widget.ViewPager
+    <com.zhuandian.common.view.NoScrollViewPager
         android:id="@+id/vp_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
