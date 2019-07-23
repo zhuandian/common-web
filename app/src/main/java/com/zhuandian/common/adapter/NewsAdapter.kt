@@ -34,11 +34,11 @@ class NewsAdapter(var dataList: List<NewsEntity>, var context: Context?) : Recyc
         var type: Int = dataList[position].type.toInt()
         holder.tvType.text = when (type) {
             1 -> "#热搜#"
-            2 -> "便宜购物"
-            3 -> "促销"
-            4 -> "网红推荐"
+            2 -> "#便宜购物#"
+            3 -> "#促销#"
+            4 -> "#网红推荐#"
             else
-            -> "未知"
+            -> "#未知#"
         }
 
     }
