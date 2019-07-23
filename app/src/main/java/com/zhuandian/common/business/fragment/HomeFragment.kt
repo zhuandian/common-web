@@ -12,7 +12,7 @@ import com.zhuandian.common.utils.Constant
 import com.zhuandian.common.R
 import com.zhuandian.common.adapter.HomeListAdapter
 import com.zhuandian.common.base.BaseFragment
-import com.zhuandian.common.business.ItemDetailActivity
+import com.zhuandian.common.business.HomeListItemDetailActivity
 import com.zhuandian.common.entity.Banner
 import com.zhuandian.common.entity.HomeEntity
 import com.zhuandian.common.entity.HomeList
@@ -50,7 +50,7 @@ class HomeFragment : BaseFragment() {
         var homeListAdapter = HomeListAdapter(list, context)
         homeListAdapter?.setOnClickListener(object : HomeListAdapter.OnItemClickListener {
             override fun onItemClick(homeList: HomeList) {
-                (activity as Activity).startActivity<ItemDetailActivity>(
+                (activity as Activity).startActivity<HomeListItemDetailActivity>(
 //                        "data" to homeList
                         Pair("data", homeList)
                 )

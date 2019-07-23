@@ -6,8 +6,8 @@ import com.zhuandian.common.base.BaseActivity
 import com.zhuandian.common.entity.HomeList
 import kotlinx.android.synthetic.main.item_home_list.*
 
-class ItemDetailActivity : BaseActivity() {
-    override fun getLayoutId(): Int = R.layout.activity_item_detail
+class HomeListItemDetailActivity : BaseActivity() {
+    override fun getLayoutId(): Int = R.layout.activity_home_list_item_detail
 
     override fun setUpView() {
         var data: HomeList = intent.getSerializableExtra("data") as HomeList

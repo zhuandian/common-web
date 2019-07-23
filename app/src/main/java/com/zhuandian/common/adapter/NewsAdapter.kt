@@ -40,7 +40,9 @@ class NewsAdapter(var dataList: List<NewsEntity>, var context: Context?) : Recyc
             else
             -> "#未知#"
         }
-
+        holder.itemView.setOnClickListener {
+            clickListener?.onItemClick(dataList[position])
+        }
     }
 
 
@@ -50,5 +52,14 @@ class NewsAdapter(var dataList: List<NewsEntity>, var context: Context?) : Recyc
         var tvContent = itemView.findViewById<TextView>(R.id.tv_content)
         var tvTime = itemView.findViewById<TextView>(R.id.tv_time)
         var tvType = itemView.findViewById<TextView>(R.id.tv_type)
+    }
+
+    private var clickListener: OnItemClickListener? = null
+    fun setOnClickListener(listener: OnItemClickListener) {
+        this.clickListener = listener
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(newsEntity: NewsEntity)
     }
 }

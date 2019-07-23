@@ -1,5 +1,6 @@
 package com.zhuandian.common.business.fragment
 
+import android.app.Activity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -9,10 +10,12 @@ import com.google.gson.Gson
 import com.zhuandian.common.R
 import com.zhuandian.common.adapter.NewsAdapter
 import com.zhuandian.common.base.BaseFragment
+import com.zhuandian.common.business.NewsListItemActivity
 import com.zhuandian.common.entity.NewsEntity
 import com.zhuandian.common.utils.Constant
 import com.zhuandian.common.utils.MyJsonArrayRequest
 import kotlinx.android.synthetic.main.fragment_news.*
+import org.jetbrains.anko.startActivity
 
 /**
  * desc :
@@ -68,8 +71,18 @@ class NewsFragment : BaseFragment() {
     }
 
     private fun initList(entityarr: Array<NewsEntity>?) {
-        rv_list.adapter = NewsAdapter(entityarr!!.toList(), activity)
+        var newsAdapter = NewsAdapter(entityarr!!.toList(), activity)
+        rv_list.adapter = newsAdapter
         rv_list.layoutManager = LinearLayoutManager(activity)
+        newsAdapter.setOnClickListener(object : NewsAdapter.OnItemClickListener {
+            override fun onItemClick(newsEntity: NewsEntity) {
+                (activity as Activity).startActivity<NewsListItemActivity>(
+//                        "data" to newsEntity
+                        Pair("data", newsEntity)
+                )
+            }
+
+        })
     }
 }
 

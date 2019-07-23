@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".business.FeedBackActivity"></activity>
-        <activity android:name=".business.ItemDetailActivity" />
+        <activity android:name=".business.HomeListItemDetailActivity" />
+        <activity android:name=".business.NewsListItemActivity"/>
 
         <uses-library
             android:name="org.apache.http.legacy"
