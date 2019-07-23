@@ -27,6 +27,7 @@ class MainActivity : BaseActivity() {
         pageList.add(SettingFragment())
         vp_main.adapter = HomeVpAdapter(pageList, supportFragmentManager)
         vp_main.currentItem = 0
+        vp_main.offscreenPageLimit = 4
         initBottomTab()
     }
 

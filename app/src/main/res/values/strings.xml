@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">common</string>
     <string name="app_info">app解释说明，可以随时写一点对软件的介绍之类的话</string>
+
     <string name="title_home">首页</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_dashboard">看板</string>
+    <string name="title_notifications">推荐</string>
     <string name="setting">设置</string>
 </resources>

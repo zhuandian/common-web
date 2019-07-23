@@ -8,4 +8,5 @@ package com.zhuandian.common.utils
 object Constant {
     val HOME_PAGE_URL: String = "http://www.wfgchina.org/new/home.json"
     var NEWS_PAGE_URL: String = "https://zhuandian.oss-cn-qingdao.aliyuncs.com/news.json"
+    var PICTURE_PAGE_URL: String = "https://zhuandian.oss-cn-qingdao.aliyuncs.com/picture.json"
 }
