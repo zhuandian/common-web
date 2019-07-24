@@ -7,7 +7,9 @@ import com.zhuandian.common.base.BaseFragment
 import com.zhuandian.common.business.FeedBackActivity
 import kotlinx.android.synthetic.main.fragment_setting.*
 import kotlinx.android.synthetic.main.layout_common_title.*
+import org.jetbrains.anko.alert
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.yesButton
 
 /**
  * desc :
@@ -21,8 +23,11 @@ class SettingFragment : BaseFragment() {
         iv_back.visibility = View.GONE
         iv_share.visibility = View.GONE
         tv_title.text = "设置"
-        btn_feed_back.setOnClickListener { (activity as Activity).startActivity<FeedBackActivity>() }
+        rl_feed_back.setOnClickListener { (activity as Activity).startActivity<FeedBackActivity>() }
         tv_version.text = getAppVersion()
+        rl_new_version.setOnClickListener {
+            (activity as Activity).alert("当前已经最新版本", "升级提醒") { yesButton { it.cancel() } }.show()
+        }
     }
 
     private fun getAppVersion(): CharSequence? {

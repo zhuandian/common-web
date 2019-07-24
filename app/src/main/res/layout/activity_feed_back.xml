@@ -6,6 +6,8 @@
     android:background="#fff"
     tools:context=".business.FeedBackActivity">
 
+    <include layout="@layout/layout_common_title" />
+
     <EditText
         android:id="@+id/et_phone"
         android:layout_width="match_parent"
@@ -34,7 +36,7 @@
         android:textSize="12sp" />
 
     <Button
-        android:id="@+id/tv_submit"
+        android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
