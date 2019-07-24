@@ -29,8 +29,18 @@ class PictureFragment : BaseFragment() {
         iv_back.visibility = View.GONE
         iv_share.visibility = View.GONE
         tv_title.text = "精品爆款"
+        inivView();
 
         initData();
+    }
+
+    private fun inivView() {
+        refresh_layout.setOnRefreshListener {
+            if (refresh_layout.isRefreshing) {
+                refresh_layout.isRefreshing = false
+                initData()
+            }
+        }
     }
 
     private fun initData() {
