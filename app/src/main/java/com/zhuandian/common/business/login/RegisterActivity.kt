@@ -1,11 +1,15 @@
 package com.zhuandian.common.business.login
 
 import android.text.Editable
+import android.text.TextUtils
 import android.text.TextWatcher
 import android.view.View
 import com.zhuandian.common.R
 import com.zhuandian.common.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.yesButton
 
 class RegisterActivity : BaseActivity(), View.OnClickListener {
     override fun getLayoutId(): Int = R.layout.activity_register
@@ -66,6 +70,19 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun doRegister() {
-
+        if (!TextUtils.isEmpty(tiet_username.text) && tiet_password.text!!.length > 6) {
+            alert("成功", "注册成功!!!") {
+                positiveButton("去登陆") {
+                    it.dismiss()
+                    startActivity<LoginActivity>()
+                    finish()
+                }
+                negativeButton("继续注册") { it.dismiss() }
+            }.show()
+        } else {
+            alert("注册失败", "请完善所有注册信息") {
+                yesButton() { it.dismiss() }
+            }.show()
+        }
     }
 }

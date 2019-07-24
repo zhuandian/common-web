@@ -2,12 +2,16 @@ package com.zhuandian.common.business.login
 
 
 import android.text.Editable
+import android.text.TextUtils
 import android.text.TextWatcher
 import android.view.View
 import com.zhuandian.common.R
 import com.zhuandian.common.base.BaseActivity
+import com.zhuandian.common.business.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
+import org.jetbrains.anko.alert
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.yesButton
 
 class LoginActivity : BaseActivity(), View.OnClickListener {
 
@@ -61,15 +65,24 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.tv_register ->
+            R.id.tv_register -> {
                 startActivity<RegisterActivity>()
+                finish()
+            }
             R.id.btn_login ->
                 doLogin()
         }
     }
 
     private fun doLogin() {
-
+        if (!TextUtils.isEmpty(tiet_username.text) && tiet_password.text!!.length > 6) {
+            startActivity<MainActivity>()
+            finish()
+        } else {
+            alert("登陆失败", "请完善所有信息") {
+                yesButton() { it.dismiss() }
+            }.show()
+        }
     }
 
 }
