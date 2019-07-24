@@ -1,6 +1,7 @@
 package com.zhuandian.common.business.login
 
 
+import android.os.Handler
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
@@ -10,6 +11,7 @@ import com.zhuandian.common.base.BaseActivity
 import com.zhuandian.common.business.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.alert
+import org.jetbrains.anko.indeterminateProgressDialog
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.yesButton
 
@@ -76,8 +78,11 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
     private fun doLogin() {
         if (!TextUtils.isEmpty(tiet_username.text) && tiet_password.text!!.length > 6) {
-            startActivity<MainActivity>()
-            finish()
+            indeterminateProgressDialog("登陆中", "请稍后").show()
+            Handler().postDelayed(Runnable {
+                startActivity<MainActivity>()
+                finish()
+            }, 2000)
         } else {
             alert("登陆失败", "请完善所有信息") {
                 yesButton() { it.dismiss() }
