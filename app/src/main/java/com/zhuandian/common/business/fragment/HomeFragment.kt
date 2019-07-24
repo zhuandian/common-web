@@ -65,11 +65,13 @@ class HomeFragment : BaseFragment() {
         for (item in banner) {
             urls.add(item.url)
         }
-        home_banner.setImages(urls)
-        home_banner.setImageLoader(GlideImageLoader())
-        home_banner.setIndicatorGravity(BannerConfig.RIGHT)
-        home_banner.setDelayTime(5000)
-        home_banner.setBannerAnimation(Transformer.CubeIn)
-        home_banner.start()
+        if (urls != null) {
+            home_banner.setImages(urls)
+            home_banner.setImageLoader(GlideImageLoader())
+            home_banner.setIndicatorGravity(BannerConfig.RIGHT)
+            home_banner.setDelayTime(5000)
+            home_banner.setBannerAnimation(Transformer.CubeIn)
+            home_banner.start()
+        }
     }
 }
