@@ -1,18 +1,15 @@
 package com.zhuandian.common.business.login
 
-
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import com.zhuandian.common.R
 import com.zhuandian.common.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
-import org.jetbrains.anko.startActivity
 
-class LoginActivity : BaseActivity(), View.OnClickListener {
+class RegisterActivity : BaseActivity(), View.OnClickListener {
+    override fun getLayoutId(): Int = R.layout.activity_register
 
-
-    override fun getLayoutId(): Int = R.layout.activity_login
 
     override fun setUpView() {
         tiet_username.addTextChangedListener(object : TextWatcher {
@@ -55,21 +52,20 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
         })
 
-        btn_login.setOnClickListener(this)
-        tv_register.setOnClickListener(this)
+        btn_login?.setOnClickListener(this)
+        tv_register?.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.tv_register ->
-                startActivity<RegisterActivity>()
+                ""
             R.id.btn_login ->
-                doLogin()
+                doRegister()
         }
     }
 
-    private fun doLogin() {
+    private fun doRegister() {
 
     }
-
 }
