@@ -9,7 +9,7 @@ import java.io.Serializable
  */
 data class NewsEntity(
         val content: String,
-        val imgUrl: String,
+        val imgUrl: Array<String>,
         val time: String,
         val title: String,
         val type: String  //1.热搜 2.便宜购物 3.促销  4网红推荐

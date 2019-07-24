@@ -2,6 +2,8 @@ package com.zhuandian.common.business
 
 import android.content.Intent
 import android.view.View
+import android.widget.ImageView
+import androidx.core.view.setPadding
 import com.bumptech.glide.Glide
 import com.zhuandian.common.R
 import com.zhuandian.common.base.BaseActivity
@@ -29,7 +31,6 @@ class NewsListItemActivity : BaseActivity() {
     override fun setUpView() {
         tv_title.text = "咨询详情"
         data = intent.getSerializableExtra("data") as NewsEntity
-        Glide.with(this).load(data.imgUrl).into(iv_img)
         tv_time.text = data.time
         tv_title.text = data.title
         tv_content.text = data.content
@@ -48,6 +49,14 @@ class NewsListItemActivity : BaseActivity() {
             shareIntent.putExtra(Intent.EXTRA_TEXT, data.title + data.content)
             startActivity(Intent.createChooser(shareIntent, "分享"))
 //            startActivity(shareIntent)
+        }
+        ll_img_contanier.removeAllViews()
+        var i: Int = 0
+        while (i < data.imgUrl.size) {
+            var imageView = ImageView(this)
+            Glide.with(this).load(data.imgUrl[i]).into(imageView)
+            ll_img_contanier.addView(imageView)
+            i++
         }
     }
 

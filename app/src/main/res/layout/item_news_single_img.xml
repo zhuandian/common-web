@@ -65,8 +65,7 @@
         android:paddingRight="10dp"
         android:text="#热购#"
         android:textColor="#333"
-        android:textSize="10sp"
-        />
-
+        android:textSize="10sp" />
 
 </RelativeLayout>
+
