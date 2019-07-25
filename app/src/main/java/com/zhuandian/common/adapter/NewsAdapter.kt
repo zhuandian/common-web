@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -35,9 +36,9 @@ class NewsAdapter(var dataList: List<NewsEntity>, var context: Context?) : Recyc
     }
 
     override fun getItemViewType(position: Int): Int {
-        return SINGLE_IMG
+//        return SINGLE_IMG
         //TODO 多图布局暂时不做，看起来不好看
-//        if (dataList.get(position).imgUrl.size > 1) return MULTI_IMG else return SINGLE_IMG
+        if (dataList.get(position).imgUrl.size > 1) return MULTI_IMG else return SINGLE_IMG
     }
 
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
@@ -79,11 +80,15 @@ class NewsAdapter(var dataList: List<NewsEntity>, var context: Context?) : Recyc
                 clickListener?.onItemClick(dataList[position])
             }
 
-
+            var windowManager: WindowManager = context?.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+            var width: Int = windowManager.defaultDisplay.width
             viewHolder.imgContainer.removeAllViews()
             var i: Int = 0
             while (i < dataList.get(position).imgUrl.size) {
                 var imageView = ImageView(context)
+                imageView.layoutParams = LinearLayout.LayoutParams(width/2,LinearLayout.LayoutParams.MATCH_PARENT)
+                imageView.scaleType=ImageView.ScaleType.FIT_XY
+                imageView.setPadding(5,5,5,5)
                 Glide.with(context).load(dataList[position].imgUrl[i]).into(imageView)
                 viewHolder.imgContainer.addView(imageView)
                 i++

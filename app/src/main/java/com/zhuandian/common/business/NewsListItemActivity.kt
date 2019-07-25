@@ -1,8 +1,11 @@
 package com.zhuandian.common.business
 
+import android.content.Context
 import android.content.Intent
 import android.view.View
+import android.view.WindowManager
 import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.core.view.setPadding
 import com.bumptech.glide.Glide
 import com.zhuandian.common.R
@@ -50,10 +53,15 @@ class NewsListItemActivity : BaseActivity() {
             startActivity(Intent.createChooser(shareIntent, "分享"))
 //            startActivity(shareIntent)
         }
+
+        var windowManager: WindowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        var width: Int = windowManager.defaultDisplay.width
         ll_img_contanier.removeAllViews()
         var i: Int = 0
         while (i < data.imgUrl.size) {
             var imageView = ImageView(this)
+            imageView.scaleType=ImageView.ScaleType.FIT_XY
+            imageView.setPadding(5,5,5,5)
             Glide.with(this).load(data.imgUrl[i]).into(imageView)
             ll_img_contanier.addView(imageView)
             i++
