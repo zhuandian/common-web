@@ -7,6 +7,10 @@ package com.zhuandian.common.utils
  */
 object Constant {
     val HOME_PAGE_URL: String = "http://www.wfgchina.org/new/home.json"
-    var NEWS_PAGE_URL: String = "https://zhuandian.oss-cn-qingdao.aliyuncs.com/news.json"
-    var PICTURE_PAGE_URL: String = "https://zhuandian.oss-cn-qingdao.aliyuncs.com/picture.json"
+    var NEWS_PAGE_URL: String = "http://www.wfgchina.org/b/news.json"
+    var PICTURE_PAGE_URL: String = "http://www.wfgchina.org/b/picture.json"
+    var APP_CONFIG_URL: String = "http://www.wfgchina.org/b/config.json"
+
+
+    var H5_URL: String = "" //后台配置的url，此处不用修改，自动赋值
 }
