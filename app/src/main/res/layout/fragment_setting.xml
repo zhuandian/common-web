@@ -1,157 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_color">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
-
-        <include layout="@layout/layout_common_title" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            android:src="@mipmap/ic_launcher" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/app_name"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/app_info"
-            android:textSize="14sp" />
+        android:background="@color/bg_color">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="30dp"
-            android:background="#fff">
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <include layout="@layout/layout_common_title" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="#fff"
-                android:gravity="left|center_vertical"
-                android:paddingLeft="20dp"
-                android:text="软件版本" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/app_name"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/app_info"
+                android:textSize="14sp" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="right"
-                android:gravity="right|center_vertical"
-                android:paddingRight="20dp"
-                android:text="1.0" />
+                android:layout_height="40dp"
+                android:layout_marginTop="30dp"
+                android:background="#fff">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="#fff"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="软件版本" />
+
+                <TextView
+                    android:id="@+id/tv_version"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:gravity="right|center_vertical"
+                    android:paddingRight="20dp"
+                    android:text="1.0" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#9c9c9c" />
+
+            <RelativeLayout
+                android:id="@+id/rl_help"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#fff">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="#fff"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="使用说明" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="right"
+                    android:paddingRight="20dp"
+                    android:src="@android:drawable/ic_menu_help" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#9c9c9c" />
+
+            <RelativeLayout
+                android:id="@+id/rl_new_version"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#fff">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="#fff"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="查看升级" />
+
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="right"
+                    android:paddingRight="20dp"
+                    android:src="@android:drawable/ic_menu_compass" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#9c9c9c" />
+
+            <RelativeLayout
+                android:id="@+id/rl_feed_back"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#fff">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="#fff"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="20dp"
+                    android:text="反馈建议" />
+
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="right"
+                    android:paddingRight="20dp"
+                    android:src="@android:drawable/ic_menu_info_details" />
+            </RelativeLayout>
+
+
+            <Button
+                android:id="@+id/btn_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:background="@color/colorPrimary"
+                android:text="注销登录"
+                android:textColor="#fff" />
+
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="#9c9c9c" />
 
-        <RelativeLayout
-            android:id="@+id/rl_help"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="#fff">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="#fff"
-                android:gravity="left|center_vertical"
-                android:paddingLeft="20dp"
-                android:text="使用说明" />
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="right"
-                android:paddingRight="20dp"
-                android:src="@android:drawable/ic_menu_help" />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="#9c9c9c" />
-
-        <RelativeLayout
-            android:id="@+id/rl_new_version"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="#fff">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="#fff"
-                android:gravity="left|center_vertical"
-                android:paddingLeft="20dp"
-                android:text="查看升级" />
-
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="right"
-                android:paddingRight="20dp"
-                android:src="@android:drawable/ic_menu_compass" />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="#9c9c9c" />
-
-        <RelativeLayout
-            android:id="@+id/rl_feed_back"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="#fff">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="#fff"
-                android:gravity="left|center_vertical"
-                android:paddingLeft="20dp"
-                android:text="反馈建议" />
-
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="right"
-                android:paddingRight="20dp"
-                android:src="@android:drawable/ic_menu_info_details" />
-        </RelativeLayout>
-
-
-    </LinearLayout>
-
-
-</RelativeLayout>
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

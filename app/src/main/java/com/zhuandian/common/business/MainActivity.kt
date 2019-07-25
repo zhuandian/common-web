@@ -13,6 +13,7 @@ import com.zhuandian.common.business.fragment.SettingFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
+import java.util.*
 
 class MainActivity : BaseActivity() {
     override fun getLayoutId(): Int {
@@ -70,5 +71,21 @@ class MainActivity : BaseActivity() {
 
     }
 
+    private var isCanBack: Boolean = false
+    override fun onBackPressed() {
+        if (isCanBack) {
+            super.onBackPressed()
+        } else {
+            toast("再按一次退出应用")
+            isCanBack = true
+            var timer = Timer()
+            timer.schedule(object : TimerTask() {
+                override fun run() {
+                    isCanBack = false
+                }
+            }, 3000)
+        }
+
+    }
 
 }
