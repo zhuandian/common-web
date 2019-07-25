@@ -45,7 +45,7 @@
         <!-- 可配置android:process参数将Service放在其他进程中；android:enabled属性不能是false -->
         <!-- 这个是自定义Service，要继承极光JCommonService，可以在更多手机平台上使得推送通道保持的更稳定 -->
         <service
-            android:name=".jpush.JService"
+            android:name="com.zhuandian.common.business.jpush.JService"
             android:enabled="true"
             android:exported="false"
             android:process=":pushcore">
@@ -57,7 +57,7 @@
         <!-- 3.3.0开始所有事件将通过该类回调 -->
         <!-- 该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter -->
         <receiver
-            android:name=".jpush.JPushReceiver"
+            android:name="com.zhuandian.common.business.jpush.JPushReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>

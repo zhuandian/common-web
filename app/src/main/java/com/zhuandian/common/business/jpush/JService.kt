@@ -1,4 +1,4 @@
-package com.zhuandian.common.jpush
+package com.zhuandian.common.business.jpush
 
 import cn.jpush.android.service.JCommonService
 
