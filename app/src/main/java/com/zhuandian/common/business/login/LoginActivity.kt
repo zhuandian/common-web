@@ -9,6 +9,7 @@ import android.view.View
 import com.zhuandian.common.R
 import com.zhuandian.common.base.BaseActivity
 import com.zhuandian.common.business.MainActivity
+import com.zhuandian.common.database.UserDBHelper
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.indeterminateProgressDialog
@@ -77,17 +78,50 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun doLogin() {
-        if (!TextUtils.isEmpty(tiet_username.text) && tiet_password.text!!.length > 6) {
-            indeterminateProgressDialog("登陆中", "请稍后").show()
-            Handler().postDelayed(Runnable {
-                startActivity<MainActivity>()
-                finish()
-            }, 2000)
+        if (!TextUtils.isEmpty(tiet_username.text.toString()) && tiet_password.text.toString()!!.length > 6) {
+            verifyUser()
         } else {
             alert("登陆失败", "请完善所有信息") {
                 yesButton() { it.dismiss() }
             }.show()
         }
+    }
+
+    private fun verifyUser() {
+        var userInputName = tiet_username.text.toString()
+        var userInputPassWord = tiet_password.text.toString()
+        var userDBHelper = UserDBHelper(this)
+        var writableDatabase = userDBHelper.writableDatabase
+        var cursor = writableDatabase.query(UserDBHelper.TABLE_NAME, null, null, null, null, null, null)
+
+        var isAvailable = false
+        while (cursor!!.moveToNext()) {
+            var name = cursor.getString(cursor.getColumnIndex("username"))
+            var password = cursor.getString(cursor.getColumnIndex("password"))
+            if (userInputName == name) {
+                isAvailable = true
+                if (userInputPassWord == password) {
+                    indeterminateProgressDialog("登陆中", "请稍后").show()
+                    Handler().postDelayed(Runnable {
+                        startActivity<MainActivity>()
+                        finish()
+                    }, 2000)
+                } else {
+                    alert("密码错误，请重新输入...", "登陆失败") {
+                        yesButton() { it.dismiss() }
+                    }.show()
+                }
+                break
+            }
+        }
+
+        if (!isAvailable) {
+            alert("账号不存在，请先注册...", "登陆失败") {
+                yesButton() { it.dismiss() }
+            }.show()
+
+        }
+
     }
 
 }

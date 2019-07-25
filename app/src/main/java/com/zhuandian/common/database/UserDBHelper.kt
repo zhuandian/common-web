@@ -32,7 +32,7 @@ class UserDBHelper(var context: Context, private var DB_VERSION: Int = CURRENT_V
 
     private var mDB: SQLiteDatabase? = null
 
-    fun openReadLink(): SQLiteDatabase {
+    fun openWriteLink(): SQLiteDatabase {
         if (mDB == null || mDB?.isOpen !== true) {
             mDB = instance?.getReadableDatabase()
         }
@@ -53,10 +53,8 @@ class UserDBHelper(var context: Context, private var DB_VERSION: Int = CURRENT_V
         db.execSQL(drop_sql)
         val create_sql = "CREATE TABLE IF NOT EXISTS $TABLE_NAME (" +
                 "_id INTEGER PRIMARY KEY  AUTOINCREMENT NOT NULL," +
-                "name VARCHAR NOT NULL," + "age INTEGER NOT NULL," +
-                "height LONG NOT NULL," + "weight FLOAT NOT NULL," +
-                "married INTEGER NOT NULL," + "update_time VARCHAR NOT NULL" +
-                ",phone VARCHAR" + ",password VARCHAR" + ");"
+                "username VARCHAR NOT NULL," +
+                "password VARCHAR" + ");"
         Log.d(TAG, "create_sql:" + create_sql)
         db.execSQL(create_sql)
     }
@@ -77,6 +75,7 @@ class UserDBHelper(var context: Context, private var DB_VERSION: Int = CURRENT_V
         use {
             rowId = insert(TABLE_NAME, null, values)
         }
+        println("插入数据--------------${rowId}")
         return rowId
     }
 

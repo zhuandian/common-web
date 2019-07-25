@@ -1,11 +1,13 @@
 package com.zhuandian.common.business.login
 
+import android.content.ContentValues
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
 import android.view.View
 import com.zhuandian.common.R
 import com.zhuandian.common.base.BaseActivity
+import com.zhuandian.common.database.UserDBHelper
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.startActivity
@@ -70,7 +72,10 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun doRegister() {
-        if (!TextUtils.isEmpty(tiet_username.text) && tiet_password.text!!.length > 6) {
+        if (!TextUtils.isEmpty(tiet_username.text.toString()) && tiet_password.text.toString()!!.length > 6) {
+
+            insertUser2Db()
+
             alert("成功", "注册成功!!!") {
                 positiveButton("去登陆") {
                     it.dismiss()
@@ -84,5 +89,14 @@ class RegisterActivity : BaseActivity(), View.OnClickListener {
                 yesButton() { it.dismiss() }
             }.show()
         }
+    }
+
+    private fun insertUser2Db() {
+        var userDBHelper = UserDBHelper(this)
+        userDBHelper.writableDatabase
+        var contentValues = ContentValues()
+        contentValues.put("username", tiet_username.text.toString())
+        contentValues.put("password", tiet_password.text.toString())
+        userDBHelper.insert(contentValues)
     }
 }
