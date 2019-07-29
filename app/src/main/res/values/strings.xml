@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">common</string>
-    <string name="app_info">app解释说明，可以随时写一点对软件的介绍之类的话</string>
+    <string name="app_name">澳门旅游</string>
+    <string name="app_info">澳门旅游攻略,澳门旅游,澳门游记攻略,澳门自助游澳门旅游攻略，汇聚了海量澳门旅游、自助游的游记攻略，详细介绍了澳门旅游景点、美食、购物、住宿、地图和游玩行程线路等澳门旅游攻略、游记</string>
 
     <string name="title_home">首页</string>
     <string name="title_dashboard">看板</string>

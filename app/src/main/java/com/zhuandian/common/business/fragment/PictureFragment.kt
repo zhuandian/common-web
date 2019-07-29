@@ -28,7 +28,7 @@ class PictureFragment : BaseFragment() {
     override fun setUpView() {
         iv_back.visibility = View.GONE
         iv_share.visibility = View.GONE
-        tv_title.text = "精品爆款"
+        tv_title.text = "热门推荐"
         inivView();
 
         initData();

@@ -33,10 +33,10 @@ class NewsFragment : BaseFragment() {
 
     private fun initTab() {
         tab_layout.addTab(tab_layout.newTab().setText("全部"))
-        tab_layout.addTab(tab_layout.newTab().setText("热搜"))
-        tab_layout.addTab(tab_layout.newTab().setText("便宜购物"))
-        tab_layout.addTab(tab_layout.newTab().setText("促销"))
-        tab_layout.addTab(tab_layout.newTab().setText("网红推荐"))
+        tab_layout.addTab(tab_layout.newTab().setText("锦囊"))
+        tab_layout.addTab(tab_layout.newTab().setText("景点美食"))
+        tab_layout.addTab(tab_layout.newTab().setText("行程助手"))
+        tab_layout.addTab(tab_layout.newTab().setText("酒店"))
         tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabReselected(p0: TabLayout.Tab?) {
             }

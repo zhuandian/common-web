@@ -4,14 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".business.AppIntroActivity">
 
     <include layout="@layout/layout_common_title" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/app_name" />
+
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_app_intro" />
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:padding="25dp"
+        android:text="@string/app_info" />
 </LinearLayout>
