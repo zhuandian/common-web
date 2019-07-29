@@ -13,4 +13,9 @@ object Constant {
 
 
     var H5_URL: String = "" //后台配置的url，此处不用修改，自动赋值
+
+    var TYPE_1:String="锦囊"
+    var TYPE_2:String="景点美食"
+    var TYPE_3:String="行程助手"
+    var TYPE_4:String="酒店"
 }

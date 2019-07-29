@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.zhuandian.common.R
 import com.zhuandian.common.entity.NewsEntity
+import com.zhuandian.common.utils.Constant
 
 /**
  * desc :
@@ -51,10 +52,10 @@ class NewsAdapter(var dataList: List<NewsEntity>, var context: Context?) : Recyc
             Glide.with(context).load(dataList[position].imgUrl[0]).into(viewHolder.img)
             var type: Int = dataList[position].type.toInt()
             viewHolder.tvType.text = when (type) {
-                1 -> "#热搜#"
-                2 -> "#便宜购物#"
-                3 -> "#促销#"
-                4 -> "#网红推荐#"
+                1 -> "#${Constant.TYPE_1}#"
+                2 -> "#${Constant.TYPE_2}#"
+                3 -> "#${Constant.TYPE_3}#"
+                4 -> "#${Constant.TYPE_4}#"
                 else
                 -> "#未知#"
             }
@@ -69,10 +70,10 @@ class NewsAdapter(var dataList: List<NewsEntity>, var context: Context?) : Recyc
             viewHolder.tvTime.text = dataList[position].time
             var type: Int = dataList[position].type.toInt()
             viewHolder.tvType.text = when (type) {
-                1 -> "#热搜#"
-                2 -> "#便宜购物#"
-                3 -> "#促销#"
-                4 -> "#网红推荐#"
+                1 -> "#${Constant.TYPE_1}#"
+                2 -> "#${Constant.TYPE_2}#"
+                3 -> "#${Constant.TYPE_3}#"
+                4 -> "#${Constant.TYPE_4}#"
                 else
                 -> "#未知#"
             }
@@ -86,9 +87,9 @@ class NewsAdapter(var dataList: List<NewsEntity>, var context: Context?) : Recyc
             var i: Int = 0
             while (i < dataList.get(position).imgUrl.size) {
                 var imageView = ImageView(context)
-                imageView.layoutParams = LinearLayout.LayoutParams(width/2,LinearLayout.LayoutParams.MATCH_PARENT)
-                imageView.scaleType=ImageView.ScaleType.FIT_XY
-                imageView.setPadding(5,5,5,5)
+                imageView.layoutParams = LinearLayout.LayoutParams(width / 2, LinearLayout.LayoutParams.MATCH_PARENT)
+                imageView.scaleType = ImageView.ScaleType.FIT_XY
+                imageView.setPadding(5, 5, 5, 5)
                 Glide.with(context).load(dataList[position].imgUrl[i]).into(imageView)
                 viewHolder.imgContainer.addView(imageView)
                 i++

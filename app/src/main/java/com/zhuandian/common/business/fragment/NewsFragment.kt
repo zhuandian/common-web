@@ -15,6 +15,9 @@ import com.zhuandian.common.entity.NewsEntity
 import com.zhuandian.common.utils.Constant
 import com.zhuandian.common.utils.MyJsonArrayRequest
 import kotlinx.android.synthetic.main.fragment_news.*
+import kotlinx.android.synthetic.main.fragment_news.refresh_layout
+import kotlinx.android.synthetic.main.fragment_news.rv_list
+import kotlinx.android.synthetic.main.fragment_picture.*
 import org.jetbrains.anko.startActivity
 
 /**
@@ -25,18 +28,25 @@ import org.jetbrains.anko.startActivity
 class NewsFragment : BaseFragment() {
     lateinit var entityarr: Array<NewsEntity>
     override fun getLayoutId(): Int = R.layout.fragment_news
+    private var type: Int = 0
 
     override fun setUpView() {
         initTab()
         initData()
+        refresh_layout.setOnRefreshListener {
+            if (refresh_layout.isRefreshing && entityarr.size > 0) {
+                refresh_layout.isRefreshing = false
+                filterDataList(type)
+            }
+        }
     }
 
     private fun initTab() {
         tab_layout.addTab(tab_layout.newTab().setText("全部"))
-        tab_layout.addTab(tab_layout.newTab().setText("锦囊"))
-        tab_layout.addTab(tab_layout.newTab().setText("景点美食"))
-        tab_layout.addTab(tab_layout.newTab().setText("行程助手"))
-        tab_layout.addTab(tab_layout.newTab().setText("酒店"))
+        tab_layout.addTab(tab_layout.newTab().setText(Constant.TYPE_1))
+        tab_layout.addTab(tab_layout.newTab().setText(Constant.TYPE_2))
+        tab_layout.addTab(tab_layout.newTab().setText(Constant.TYPE_3))
+        tab_layout.addTab(tab_layout.newTab().setText(Constant.TYPE_4))
         tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabReselected(p0: TabLayout.Tab?) {
             }
@@ -45,6 +55,7 @@ class NewsFragment : BaseFragment() {
             }
 
             override fun onTabSelected(p0: TabLayout.Tab?) {
+                type = p0!!.position
                 filterDataList(p0?.position)
             }
 
