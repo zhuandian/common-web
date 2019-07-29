@@ -20,8 +20,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="5dp"
+        android:ellipsize="end"
         android:gravity="center"
-        android:text="dfsasdfdas" />
+        android:singleLine="true"
+        android:text="dfsasdfdafdsfdsafdsf dfsdafsda s" />
 
     <ImageView
         android:id="@+id/iv_share"
