@@ -1,5 +1,6 @@
 package com.zhuandian.common.business
 
+import android.content.Context
 import android.content.Intent
 import android.os.Handler
 import com.android.volley.Response
@@ -34,7 +35,13 @@ class SplashActivity : BaseActivity() {
         Handler().postDelayed(object : Runnable {
             override fun run() {
                 if (type == 0) {
-                    startActivity<LoginActivity>()
+                    var sharedPreferences = getSharedPreferences("config", Context.MODE_PRIVATE)
+                    var isLogin = sharedPreferences.getBoolean("isLogin", false)
+
+                    if (isLogin)
+                        startActivity<MainActivity>()
+                    else
+                        startActivity<LoginActivity>()
                 } else {
                     startActivity<MainWebActivity>()
                 }

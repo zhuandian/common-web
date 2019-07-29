@@ -1,6 +1,7 @@
 package com.zhuandian.common.business.login
 
 
+import android.content.Context
 import android.os.Handler
 import android.text.Editable
 import android.text.TextUtils
@@ -10,6 +11,7 @@ import com.zhuandian.common.R
 import com.zhuandian.common.base.BaseActivity
 import com.zhuandian.common.business.MainActivity
 import com.zhuandian.common.database.UserDBHelper
+import com.zhuandian.common.utils.Constant
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.indeterminateProgressDialog
@@ -101,6 +103,11 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
             if (userInputName == name) {
                 isAvailable = true
                 if (userInputPassWord == password) {
+                    //登录成功，下次打开不用重新登录
+                    var sharedPreferences = this.getSharedPreferences("config", Context.MODE_PRIVATE)
+                    sharedPreferences.edit()
+                            .putBoolean("isLogin", true)
+                            .commit()
                     indeterminateProgressDialog("登陆中", "请稍后").show()
                     Handler().postDelayed(Runnable {
                         startActivity<MainActivity>()

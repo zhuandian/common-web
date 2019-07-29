@@ -1,6 +1,7 @@
 package com.zhuandian.common.business.fragment
 
 import android.app.Activity
+import android.content.Context
 import android.view.View
 import com.zhuandian.common.R
 import com.zhuandian.common.base.BaseActivity
@@ -8,6 +9,7 @@ import com.zhuandian.common.base.BaseFragment
 import com.zhuandian.common.business.AppIntroActivity
 import com.zhuandian.common.business.FeedBackActivity
 import com.zhuandian.common.business.login.LoginActivity
+import com.zhuandian.common.utils.Constant
 import kotlinx.android.synthetic.main.fragment_setting.*
 import kotlinx.android.synthetic.main.layout_common_title.*
 import org.jetbrains.anko.alert
@@ -41,6 +43,10 @@ class SettingFragment : BaseFragment(), View.OnClickListener {
             R.id.rl_new_version ->
                 (activity as Activity).alert("当前已经最新版本", "升级提醒") { yesButton { it.cancel() } }.show()
             R.id.btn_logout -> {
+                var sharedPreferences = activity?.getSharedPreferences("config", Context.MODE_PRIVATE)
+                sharedPreferences!!.edit()
+                        .putBoolean("isLogin", false)
+                        .commit()
                 (activity as Activity).startActivity<LoginActivity>()
                 activity!!.finish()
             }
