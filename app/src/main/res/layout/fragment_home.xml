@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="今日|推荐"
+            android:text="热门|推荐"
             android:textColor="#000"
             android:textSize="20sp"
             android:textStyle="bold" />
