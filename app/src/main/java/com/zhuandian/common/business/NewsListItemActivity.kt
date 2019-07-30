@@ -35,7 +35,7 @@ class NewsListItemActivity : BaseActivity() {
         tv_title.text = "咨询详情"
         data = intent.getSerializableExtra("data") as NewsEntity
         tv_time.text = data.time
-        tv_title.text = data.title
+        tv_item_title.text = data.title
         tv_content.text = data.content
         tv_type.text = when (data.type.toInt()) {
             1 -> "#热搜#"
