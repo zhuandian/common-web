@@ -41,11 +41,27 @@
             android:textSize="13sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/til_password"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入昵称"
+            android:textSize="13sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/til_password"
+        android:layout_below="@+id/til_nickname"
         android:layout_margin="30dp"
         android:background="@color/colorPrimary"
         android:text="注 册"
